@@ -1,5 +1,5 @@
 # CLSystemAlertController 1.0
-显示提示窗口，兼容iOS8.3以下版本
+封装了系统提示窗口，兼容iOS8.3以下版本
 
 <br />
 作者：李辉 <br />
@@ -22,6 +22,11 @@
                                 clickedButtonBlock:^(NSUInteger index) {
                                     weakSelf.indexField.text = [NSString stringWithFormat:@"%d", index];
                                 }];
+    如果共有n个按钮，则：
+    cancelButton按钮的序号为 0，
+    destructiveButton按钮的序号为1，
+    otherButton按钮的序号从为 2 ～ n-1，
+    如果cancelButtonTitle或者destructiveButtonTitle为nil，则其他按钮的序号向前补位
 
 历史版本
 ===============
