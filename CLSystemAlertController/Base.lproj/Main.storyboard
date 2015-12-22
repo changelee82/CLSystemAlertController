@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b85-tG-qBi">
+                                <rect key="frame" x="20" y="40" width="115" height="30"/>
+                                <state key="normal" title="Sheet风格提示框"/>
+                                <connections>
+                                    <action selector="sheetButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Oax-B4-tYE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dNc-Da-AfO">
+                                <rect key="frame" x="20" y="80" width="108" height="30"/>
+                                <state key="normal" title="Alert风格提示框"/>
+                                <connections>
+                                    <action selector="alertButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hVw-Lu-OZh"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点击按钮序号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xTJ-q4-eNj">
+                                <rect key="frame" x="20" y="120" width="102" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cox-pF-2Te">
+                                <rect key="frame" x="20" y="154" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="QqP-nU-LNy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="b85-tG-qBi" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="053-L0-jbk"/>
+                            <constraint firstItem="b85-tG-qBi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="9ug-bk-wfs"/>
+                            <constraint firstItem="xTJ-q4-eNj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="F83-j7-faS"/>
+                            <constraint firstItem="Cox-pF-2Te" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="Ixm-n8-DLL"/>
+                            <constraint firstItem="Cox-pF-2Te" firstAttribute="top" secondItem="xTJ-q4-eNj" secondAttribute="bottom" constant="13" id="bT9-o7-TX9"/>
+                            <constraint firstItem="dNc-Da-AfO" firstAttribute="top" secondItem="b85-tG-qBi" secondAttribute="bottom" constant="10" id="cfr-i5-Qif"/>
+                            <constraint firstItem="dNc-Da-AfO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="jbv-S3-yaD"/>
+                            <constraint firstItem="xTJ-q4-eNj" firstAttribute="top" secondItem="dNc-Da-AfO" secondAttribute="bottom" constant="10" id="xVc-3V-FEG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="indexField" destination="Cox-pF-2Te" id="Ebe-sA-2nT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
