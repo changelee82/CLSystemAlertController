@@ -41,14 +41,16 @@ typedef NS_ENUM(NSInteger, SystemAlertStyle) {
  *  @param otherButtonTitles      其他按钮文字
  *  @param buttonDidClickBlock    点击按钮的Block
  */
-+ (void)ShowAlertToController:(UIViewController *)viewController
-         alertControllerStyle:(SystemAlertStyle)alertStyle
-                        title:(NSString *)title
-                      message:(NSString *)message
-            cancelButtonTitle:(NSString *)cancelButtonTitle
-       destructiveButtonTitle:(NSString *)destructiveButtonTitle
-            otherButtonTitles:(NSArray  *)otherButtonTitles
-           clickedButtonBlock:(ButtonDidClickBlock)buttonDidClickBlock;
++ (CLSystemAlertController *)showAlertToController:(UIViewController *)viewController
+                              alertControllerStyle:(SystemAlertStyle)alertStyle
+                                             title:(NSString *)title
+                                           message:(NSString *)message
+                                 cancelButtonTitle:(NSString *)cancelButtonTitle
+                            destructiveButtonTitle:(NSString *)destructiveButtonTitle
+                                 otherButtonTitles:(NSArray  *)otherButtonTitles
+                                clickedButtonBlock:(ButtonDidClickBlock)buttonDidClickBlock;
 
+/**  释放自己 */
+- (void)removeAlertController;
 
 @end

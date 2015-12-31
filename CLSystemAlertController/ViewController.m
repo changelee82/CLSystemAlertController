@@ -30,7 +30,7 @@
 
 - (IBAction)sheetButtonClick:(UIButton *)sender {
     __weak __typeof(self) weakSelf = self;
-    [CLSystemAlertController ShowAlertToController:self
+    [CLSystemAlertController showAlertToController:self
                               alertControllerStyle:SystemAlertStyleSheet
                                              title:@"这是标题"
                                            message:@"详细信息"
@@ -44,7 +44,7 @@
 
 - (IBAction)alertButtonClick:(UIButton *)sender {
     __weak __typeof(self) weakSelf = self;
-    [CLSystemAlertController ShowAlertToController:self
+    [CLSystemAlertController showAlertToController:self
                               alertControllerStyle:SystemAlertStyleAlert
                                              title:@"这是标题"
                                            message:@"详细信息"

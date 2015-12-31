@@ -13,7 +13,10 @@
 @interface CLSystemAlertController () <UIAlertViewDelegate, UIActionSheetDelegate>
 
 /**  点击按钮后的回调block */
-@property (nonatomic,copy) ButtonDidClickBlock buttonDidClickBlock;
+@property (nonatomic, copy) ButtonDidClickBlock buttonDidClickBlock;
+
+/**  当前的提示框 */
+@property (nonatomic, weak) id alertController;
 
 @end
 
@@ -33,17 +36,17 @@
  *  @param otherButtonTitles      其他按钮文字
  *  @param buttonDidClickBlock    点击按钮的Block
  */
-+ (void)ShowAlertToController:(UIViewController *)viewController
-         alertControllerStyle:(SystemAlertStyle)alertStyle
-                        title:(NSString *)title
-                      message:(NSString *)message
-            cancelButtonTitle:(NSString *)cancelButtonTitle
-       destructiveButtonTitle:(NSString *)destructiveButtonTitle
-            otherButtonTitles:(NSArray  *)otherButtonTitles
-           clickedButtonBlock:(ButtonDidClickBlock)buttonDidClickBlock
++ (CLSystemAlertController *)showAlertToController:(UIViewController *)viewController
+                              alertControllerStyle:(SystemAlertStyle)alertStyle
+                                             title:(NSString *)title
+                                           message:(NSString *)message
+                                 cancelButtonTitle:(NSString *)cancelButtonTitle
+                            destructiveButtonTitle:(NSString *)destructiveButtonTitle
+                                 otherButtonTitles:(NSArray  *)otherButtonTitles
+                                clickedButtonBlock:(ButtonDidClickBlock)buttonDidClickBlock
 {
     // 创建对象
-    CLSystemAlertController *alertController=[[CLSystemAlertController alloc] init];
+    CLSystemAlertController *alertController = [[CLSystemAlertController alloc] init];
     
     // 加入子控制器，保住自己的命
     [viewController addChildViewController:alertController];
@@ -52,16 +55,18 @@
     alertController.buttonDidClickBlock = buttonDidClickBlock;
     
     // 根据不同的style创建视图
-    [alertController  ShowAlertWithStyle:alertStyle
-                                         title:title
-                                       message:message
-                             cancelButtonTitle:cancelButtonTitle
-                        destructiveButtonTitle:destructiveButtonTitle
-                             otherButtonTitles:otherButtonTitles];
+    [alertController showAlertWithStyle:alertStyle
+                                  title:title
+                                message:message
+                      cancelButtonTitle:cancelButtonTitle
+                 destructiveButtonTitle:destructiveButtonTitle
+                      otherButtonTitles:otherButtonTitles];
+    
+    return alertController;
 }
 
 
-- (void)ShowAlertWithStyle:(SystemAlertStyle)alertStyle
+- (void)showAlertWithStyle:(SystemAlertStyle)alertStyle
                      title:(NSString *)title
                    message:(NSString *)message
          cancelButtonTitle:(NSString *)cancelButtonTitle
@@ -76,6 +81,8 @@
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
                                                                                  message:message
                                                                           preferredStyle:(UIAlertControllerStyle)alertStyle];
+        self.alertController = alertController;
+        
         // 设置序号
         NSUInteger buttonIndex = 0;
         
@@ -232,6 +239,13 @@
         // 释放自己
         [weakSelf removeFromParentViewController];
     });
+}
+
+/**  释放自己 */
+- (void)removeAlertController
+{
+    [self removeFromParentViewController];
+    [self.alertController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
